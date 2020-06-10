@@ -3,15 +3,16 @@ Transformation of RDD is lazy execution
 而没有真正运行 所以 sc.textFile("/word.tst") 不会报错 直到使用action算子 比如 collect
 
 RDD的创建
-1- 集合中创建 
-    parallelize 和 makeRDD(主要区别再约makeRDD可以指定切片所在节点hostname)
-    RDD.partitions.length 获取分区数
-2- 外部文件
-    sc.xxxxFile
-3- 从其他RDD创建 (10分区 1000数据)
-假设文件 word.txt 
-hadoop spark
-give hive hdfs
+1. 集合中创建 
+    - parallelize 和 makeRDD(主要区别再约makeRDD可以指定切片所在节点hostname)
+    - RDD.partitions.length 获取分区数
+2. 外部文件
+    * sc.xxxxFile
+3. 从其他RDD创建 (10分区 1000数据)
+    - 假设文件 word.txt 
+    -  hadoop spark
+    - give hive hdfs
+```
     rdd.
         map()
         mapPartition() # map会调用1000次(作用在每一行) mapPartitions会调用10次(作用在每个分区) 注意 此处的mapPartition是Spark的mapPartition
@@ -29,3 +30,4 @@ give hive hdfs
                    # rdd.distinct.collect 返回 Array(4,6,8,2,1,3,7,9,5)
         coalesce(numPartitions, shuffle: Boolean = false) # 
         repartition(numPartitions) # 其实际内部调用了 coalesce(numPartitions, ture)
+```
