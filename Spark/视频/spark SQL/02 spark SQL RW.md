@@ -21,9 +21,13 @@ spark.read.load("...") & df.write.save("...") 默认为 parquet
 
 ## RW MySql
 1. Read
-
-spark.read.format("jdbc").option("url", "jdbc:mysql://hadoop102/3306").option("dbtable", "emp").option("user", "root").option("password", "12345").load()
-
+```python
+>>>dataframe = spark.read.format("jdbc").option("url", "jdbc:mysql://hadoop102/3306").option("dbtable", "emp").option("user", "root").option("password", "12345").load()
+>>>dataframe.show()
+# Register the data as a temp table for future SQL queries
+>>>dataframe_mysql.registerTempTable("trips")
+>>>spark.sql("select * from trips where dispatching_base_number like '%2512%'").show()
+```
 2. Write
 * 
 ```

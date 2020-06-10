@@ -41,7 +41,7 @@ scala:
 
 sparkSession.createTempView 是为当前 session创建一个表 如果 spark.NewSession.sql 去读之前的表就会报错, 可以使用 createGlobalTempView('person') 此时访问 全局表使用 global_temp.person
 
-### UDF
+### UDF - User Defined Function
 spark.udf.register(name, f, returnType=None)
 ```
 >>> strlen = spark.udf.register("stringLengthString", lambda x: len(x))

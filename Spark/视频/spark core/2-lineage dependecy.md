@@ -1,5 +1,6 @@
-Resilient Distributed Dadaset
-immutable, partitioned, paralell compute
+## RDD
+A Resilient Distributed Dataset (RDD), the basic abstraction in Spark. Represents an immutable, partitioned collection of elements that can be operated on in parallel. 
+
 5 main properties:
     list of partitions
     function for computing each split
