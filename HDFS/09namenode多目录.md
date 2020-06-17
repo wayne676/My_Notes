@@ -1,5 +1,5 @@
 ## namenode 的本地目录可以配置多个 且每隔目录存放内容相同 增加了可靠性
-
+datanode 的操作也差不多 区别在于每个目录存储的数据不一样。即：数据不是副本。
 1. hdfs-site.xml
     ```xml
     <property>
