@@ -34,7 +34,7 @@ SSTables = Sorted String Tables
 写入存储过程用平衡树保证有序
 Merging several SSTable segments, retaining only the most recent value for each key.
 
-LSM storage enginee用的是查找most recent segment然后most second recent segment
+LSM storage enginee用的是查找most recent segment(内存中, segment文件大小达到阀值后会写入磁盘)然后most second recent segment(disk 上)
 what happens in each segment? 假如你要读 handiwork你不知道offset, 但是你知道handbag和handsome,再加上有序,This means you can jump to the offset for handbag and scan from there until you find handiwork (or not, if the key is not present in the file.
 
 
