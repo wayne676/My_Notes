@@ -1,3 +1,19 @@
+## Functions as Arguments
+```go
+func applyIt(afunct func (int) int, val int) int{
+    return afunct(val)
+}
+```
+
+## Functions as returns
+```go 
+func makeDistOrigin (ox, oy, float64) func (float64, float64) float64{
+    fn:=func(x,y float64) float64{
+        return math.Sqrt(math.Pow(x-ox,2) + math.Pow(y-oy, 2))
+    }
+    return fn
+}
+```
 ## Environment of a Function
 Environment includes names defined in  block where the function is defined
 <pre>
