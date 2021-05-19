@@ -12,7 +12,7 @@ type Shape2D interface{
 }
 type Triangle {...}
 func (t Triangle) Area() float64 {...}
-func (t Triangle) Area() float64 {...}
+func (t Triangle) Perimeter() float64 {...}
 ```
 * Triangle type satisfies the Shape2D interface
 * No need to state it explicitly
