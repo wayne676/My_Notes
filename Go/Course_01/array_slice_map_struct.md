@@ -50,6 +50,10 @@ sli = make([]int, 10, 15)
 Append<br>
 Adds elements to the end of a slice, at the same time inserts into underlying array.
 It will increase the size of array if necessary
+```go
+sli = make([]int)
+append(sli, 1)
+```
 
 Maps
 ```go
