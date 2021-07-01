@@ -4,5 +4,7 @@
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
-    }
+    },
+    "python.pythonPath": "C:\\Users\\Wayne\\AppData\\Local\\Microsoft\\WindowsApps\\python3.7.exe",
+    "python.formatting.provider": "yapf"
 }
