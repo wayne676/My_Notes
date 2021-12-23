@@ -35,3 +35,18 @@ y?.toInt()?:"ri".let {
   lateinit var retrySpec: RetryBackoffSpec
 ```
 
+```kotlin
+val generatedArray=Array(10){i-> i}
+```
+
+```kotlin
+if (targetDomainObject is Array<*>) {
+      targetDomainObject.first().toString()
+    } else {
+      targetDomainObject.toString()
+    }
+```
+
+```kotlin
+Flux.fromArray(generatedArray)
+```
