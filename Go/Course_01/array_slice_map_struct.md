@@ -60,14 +60,18 @@ Maps
 ```go
 var idMap map[string]int
 //            keytype valuetype
-idMap = make(map[string]int)
+// map[]
+var idMap = make(map[string]int)
 // initialize an empty map
+// map[]
 
 idMap := map[string]int {
-    "joe":123
+    "joe":123, "ri":321
 }
+// [joe:123 ri:321]
 
 delete(idMap, "joe")
+// [ri:321]
 
 id, p := idMap["joe"]
 // id is value, p is presence of key. value of p is True or False
