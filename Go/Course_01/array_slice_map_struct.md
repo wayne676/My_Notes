@@ -51,8 +51,9 @@ Append<br>
 Adds elements to the end of a slice, at the same time inserts into underlying array.
 It will increase the size of array if necessary
 ```go
-sli = make([]int)
-append(sli, 1)
+sli := make([]int,1)
+sli = append(sli, 1)
+// [0 1]
 ```
 
 Maps
