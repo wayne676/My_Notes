@@ -3,7 +3,7 @@ Array
 var x [5]int
 x[0] = 2
 
-var x[5]int = [5]{1,2,3,4,5}
+var x [5]int = [5]int{1,2,3,4,5}
 
 x := [...]int{1,2,3,4}
 
