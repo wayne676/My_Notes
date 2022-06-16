@@ -22,7 +22,16 @@ p1 := Person(name:"joe", addr:"a st", phone:"123")
 
 barr, err := json.Marshal(p1)
 // Marshal() returns JSON representation as []byte
+// And barr will be an empty struct, json only export fields that initials get capitalized.
 
+type Person struct{
+  Name string `json:"name"`
+  Addr string
+  Phone int
+  }
+p11 := Person(Name:"joe", Addr:"a st", Phone:123)
+arr1, _ := json.Marshal(p11)
+// {"name":"joe", "Addr":"a st", "Phone":123}
 
 var p2 Person
 err := json.Unmarshal(barr, &p2)
