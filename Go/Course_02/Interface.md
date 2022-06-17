@@ -18,9 +18,9 @@ func (t Triangle) Perimeter() float64 {...}
 * No need to state it explicitly
 
 ## Interface Values
-1. Can be treated like other values
-* Assigned to variables
-* Passed, returned
+1. Interface can be treated like other values
+* Interface can be assigned to variables
+* Interface can be passed, returned
 2. Interface values have two components
 * dynamic type
 * dynamic value
