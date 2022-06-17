@@ -103,6 +103,12 @@ func main() {
 
 ## Type Assertions for Disambiguation
 ```go
+interfaceVariable.(type) is the syntax.
+// declare interface and assign
+var i interface{} = "a string"
+//type-assertion
+valueOfI,_ := i.(string)    // "a string"
+
 func DrawShape(s Shape2D) bool{
     rect, ok := s.(Rectangle)
     if ok {
