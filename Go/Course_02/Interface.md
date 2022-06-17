@@ -46,6 +46,8 @@ var d1 *Dog
 s1=d1
 s1.Speak()
 // s1.Speak() is still legal because s1 know its dynamic type it can call Dog Speak mechod. But Speak need do some changes
+
+// recommand passing by ref
 func (d *Dog) Speak(){
     if d == nil{
         fmt.Println("noise")
