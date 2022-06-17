@@ -32,7 +32,7 @@ func (d Dog) Speak() {
 }
 func main(){
     var s1 Speaker
-    var d1 Dog("Biran")
+    var d1 Dog=Dog{name:"Biran"}
     s1=d1
     s1.Speak()
 }
