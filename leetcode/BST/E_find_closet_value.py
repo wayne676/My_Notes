@@ -1,5 +1,7 @@
 
-
+'''
+Returns a closet value to target value
+'''
 
 # This is the class of the input tree. Do not edit.
 class BST:

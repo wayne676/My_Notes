@@ -1,3 +1,6 @@
+'''
+2,3,1,-4,-4,2 TRUE
+'''
 def hasSingleCycle(array):
 	# Write your code here.
 	n=len(array)

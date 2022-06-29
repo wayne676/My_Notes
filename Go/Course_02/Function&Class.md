@@ -1,7 +1,14 @@
 ## Functions as Arguments
 ```go
-func applyIt(afunct func (int) int, val int) int{
-    return afunct(val)
+func main(){
+    applyIt(area, 2, 4)
+}
+
+func applyIt(fname func (int) int, val1, val2 int) int{
+    return fname(val1, val2)
+}
+func area(a,b int) int{
+    return a*b
 }
 ```
 

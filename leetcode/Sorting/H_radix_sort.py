@@ -22,4 +22,5 @@ def processRadixSort(array, exp):
         counter[row].append(array[i])
     for x in counter:
         r+=x
+        print(r)
     return r

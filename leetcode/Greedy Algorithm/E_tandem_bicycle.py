@@ -4,7 +4,7 @@
 def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
     # Write your code here.
     a= redShirtSpeeds
-    b=blueShirtSpeeds
+    b= blueShirtSpeeds
     result = 0
     if fastest:
         a.sort()

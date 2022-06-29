@@ -4,7 +4,7 @@
 返回 最小的使整个数组有序的 起始和最终 index 如果数组有序 则返回[-1,-1]
 '''
 
-
+# 排序找最前端和最后端的不同
 def subarraySort(array):
 	st_array = sorted(array)
 	i = 0
@@ -29,13 +29,14 @@ def subarraySort(array):
 [3,9]
 返回 最小的使整个数组有序的 起始和最终 index 如果数组有序 则返回[-1,-1]
 '''
+# 找出未排序的最大和最小元素然后找到在数组中应该在的位置
 def subarraySort(array):
 	small = float("inf")
 	large = float("-inf")
 	for i, v in enumerate(array):
 		if not isSortedElement(array, i):
-			small = min(small, array[i])
-			large = max(large, array[i])
+			small = min(small, v)
+			large = max(large, v)
 	if small == float('inf'):
     		return [-1,-1]
 	i=0

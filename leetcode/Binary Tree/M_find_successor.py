@@ -1,4 +1,7 @@
-# This is an input class. Do not edit.
+'''
+A node's successor is the next node to be vistied (immediately after the given node)
+when traversing its tree using the in-order tree-traversal technique
+'''
 class BinaryTree:
 	def __init__(self, value, left=None, right=None, parent=None):
 		self.value = value
