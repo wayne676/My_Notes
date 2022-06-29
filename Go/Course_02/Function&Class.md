@@ -1,3 +1,10 @@
+## Function
+```go
+func sum(a int, b int) int{
+    return a+b
+}
+```
+
 ## Functions as Arguments
 ```go
 func main(){

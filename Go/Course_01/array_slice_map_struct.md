@@ -3,7 +3,7 @@ Array
 var x [5]int
 x[0] = 2
 
-var x[5]int = [5]{1,2,3,4,5}
+var x [5]int = [5]int{1,2,3,4,5}
 
 x := [...]int{1,2,3,4}
 
@@ -51,22 +51,27 @@ Append<br>
 Adds elements to the end of a slice, at the same time inserts into underlying array.
 It will increase the size of array if necessary
 ```go
-sli = make([]int)
-append(sli, 1)
+sli := make([]int,1)
+sli = append(sli, 1)
+// [0 1]
 ```
 
 Maps
 ```go
 var idMap map[string]int
 //            keytype valuetype
-idMap = make(map[string]int)
+// map[]
+var idMap = make(map[string]int)
 // initialize an empty map
+// map[]
 
 idMap := map[string]int {
-    "joe":123
+    "joe":123, "ri":321
 }
+// [joe:123 ri:321]
 
 delete(idMap, "joe")
+// [ri:321]
 
 id, p := idMap["joe"]
 // id is value, p is presence of key. value of p is True or False
@@ -78,7 +83,7 @@ for key, val := range idMap{
 
 Struct
 ```go
-type Person struct  {
+type Person struct {
     name string
     addr string
     phone string

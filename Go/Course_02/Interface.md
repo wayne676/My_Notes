@@ -10,7 +10,7 @@ type Shape2D interface{
     Area() float64
     Perimeter() float64
 }
-type Triangle {...}
+type Triangle struct{...}
 func (t Triangle) Area() float64 {...}
 func (t Triangle) Perimeter() float64 {...}
 ```
@@ -18,9 +18,9 @@ func (t Triangle) Perimeter() float64 {...}
 * No need to state it explicitly
 
 ## Interface Values
-1. Can be treated like other values
-* Assigned to variables
-* Passed, returned
+1. Interface can be treated like other values
+* Interface can be assigned to variables
+* Interface can be passed, returned
 2. Interface values have two components
 * dynamic type
 * dynamic value
@@ -32,7 +32,7 @@ func (d Dog) Speak() {
 }
 func main(){
     var s1 Speaker
-    var d1 Dog("Biran")
+    var d1 Dog=Dog{name:"Biran"}
     s1=d1
     s1.Speak()
 }
@@ -46,6 +46,8 @@ var d1 *Dog
 s1=d1
 s1.Speak()
 // s1.Speak() is still legal because s1 know its dynamic type it can call Dog Speak mechod. But Speak need do some changes
+
+// recommand passing by ref
 func (d *Dog) Speak(){
     if d == nil{
         fmt.Println("noise")
@@ -101,6 +103,12 @@ func main() {
 
 ## Type Assertions for Disambiguation
 ```go
+interfaceVariable.(type) is the syntax.
+// declare interface and assign
+var i interface{} = "a string"
+//type-assertion
+valueOfI,_ := i.(string)    // "a string"
+
 func DrawShape(s Shape2D) bool{
     rect, ok := s.(Rectangle)
     if ok {
