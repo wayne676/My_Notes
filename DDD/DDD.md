@@ -141,7 +141,7 @@ part of the domain design. Provide an interface that encapsulates all complex as
 and that does not require the client to reference the concrete classes of the objects
 being instantiated. Create entire AGGREGATES as a piece, enforcing their invariants.
 
-Factory 应用的位置 \
+Factory 应用的位置 
 * add elements inside a preexisting AGGREGATE, you might create a
 FACTORY METHOD on the root of the AGGREGATE
 *  object A creation needs object B's info, then put FACTORY METHOD on object B. this saves
