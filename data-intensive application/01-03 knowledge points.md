@@ -30,8 +30,8 @@ In a declarative query language, like SQL or relational algebra, you just specif
 
 ### SSTables and LSM Tree
 SSTables = Sorted String Tables
-大致意思是 每个segment中的 key 唯一 并且有序
-写入存储过程用平衡树保证有序
+大致意思是 每个segment最先保存在内存中 在写入内存中的时候用平衡树保证有序 segment中的 数据量达到一定程度 压缩 写入硬盘
+每个segment有自己的key 并在内存中有一个index保存有segment的key
 Merging several SSTable segments, retaining only the most recent value for each key.
 
 LSM storage enginee用的是查找most recent segment(内存中, segment文件大小达到阀值后会写入磁盘)然后most second recent segment(disk 上)
