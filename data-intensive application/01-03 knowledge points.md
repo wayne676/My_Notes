@@ -28,7 +28,7 @@ SELECT * FROM animals WHERE family = 'Sharks';
 ```
 In a declarative query language, like SQL or relational algebra, you just specify the pattern of the data you want—what conditions the results must meet, and how you want the data to be transformed (e.g., sorted, grouped, and aggregated)—but not how to achieve that goal. It is up to the database system’s query optimizer to decide which indexes and which join methods to use, and in which order to execute various parts of the query.
 
-### SSTables and LSM Tree(Log-Structured Merge-Tree)
+### Log-Structured Indexes - SSTables and LSM Tree(Log-Structured Merge-Tree)
 SSTables = Sorted String Tables
 大致意思是 每个segment最先保存在内存中 在写入内存中的时候用平衡树保证有序 segment中的 数据量达到一定程度 压缩 写入硬盘
 每个segment有自己的key 并在内存中有一个index保存有segment的key
