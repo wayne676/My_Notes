@@ -1,4 +1,4 @@
-### Load
+### Load(负载)
 Load can be described with a few numbers which we call load parameters. The best choice of parameters depends on the architecture of your system: it may be requests per second to a web server, the ratio of reads to writes in a database, the number of simultaneously active users in a chat room, the hit rate on a cache, or something else. Perhaps the average case is what matters for you, or perhaps your bottleneck is dominated by a small number of extreme cases.
 
 ### Describing the performance
@@ -28,15 +28,13 @@ SELECT * FROM animals WHERE family = 'Sharks';
 ```
 In a declarative query language, like SQL or relational algebra, you just specify the pattern of the data you want—what conditions the results must meet, and how you want the data to be transformed (e.g., sorted, grouped, and aggregated)—but not how to achieve that goal. It is up to the database system’s query optimizer to decide which indexes and which join methods to use, and in which order to execute various parts of the query.
 
-### SSTables and LSM Tree
+### Log-Structured Indexes - SSTables and LSM Tree(Log-Structured Merge-Tree)
 SSTables = Sorted String Tables
-大致意思是 每个segment中的 key 唯一 并且有序
-写入存储过程用平衡树保证有序
+大致意思是 每个segment最先保存在内存中 在写入内存中的时候用平衡树保证有序 segment中的 数据量达到一定程度 压缩 写入硬盘
+每个segment有自己的key 并在内存中有一个index保存有segment的key
 Merging several SSTable segments, retaining only the most recent value for each key.
 
-LSM storage enginee用的是查找most recent segment(内存中, segment文件大小达到阀值后会写入磁盘)然后most second recent segment(disk 上)
-what happens in each segment? 假如你要读 handiwork你不知道offset, 但是你知道handbag和handsome,再加上有序,This means you can jump to the offset for handbag and scan from there until you find handiwork (or not, if the key is not present in the file.
-
+Storage engines that are based on this principle of merging and compacting sorted files are often called LSM storage engines.
 
 Lucene, an indexing engine for full-text search used by Elasticsearch and Solr, uses a similar method for storing its term dictionary <br>
 term dictionary: list of document id
