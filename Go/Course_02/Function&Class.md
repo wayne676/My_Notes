@@ -11,7 +11,7 @@ func main(){
     applyIt(area, 2, 4)
 }
 
-func applyIt(fname func (int，int) int, val1, val2 int) int{
+func applyIt(fname func (int, int) int, val1, val2 int) int{
     return fname(val1, val2)
 }
 func area(a,b int) int{
