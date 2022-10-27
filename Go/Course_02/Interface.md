@@ -1,8 +1,12 @@
 ## Polymorphism
 * ability for an object to have different "forms" depending on the context
 ```
-rectangle, area = base * height
-triangle, area = 0.5 * base * height
+rectangle_area = base * height
+triangle_area = 0.5 * base * height
+/*
+by using interface
+you can have one method area(s interface)
+*/
 ```
 ## Defining an interface type
 ```go 
