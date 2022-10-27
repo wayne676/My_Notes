@@ -10,7 +10,9 @@ func sum(a int, b int) int{
 func main(){
     applyIt(area, 2, 4)
 }
-
+/* fname-name
+   func (int, int) int-type
+*/
 func applyIt(fname func (int, int) int, val1, val2 int) int{
     return fname(val1, val2)
 }
@@ -21,6 +23,9 @@ func area(a,b int) int{
 
 ## Functions as returns
 ```go 
+/*
+func (float64, float64) float64-type
+*/
 func makeDistOrigin (ox, oy, float64) func (float64, float64) float64{
     fn:=func(x,y float64) float64{
         return math.Sqrt(math.Pow(x-ox,2) + math.Pow(y-oy, 2))
