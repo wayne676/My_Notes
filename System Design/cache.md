@@ -23,7 +23,7 @@ When paired with read-through cache, it works efficiently but if cache is down, 
 Data is written directly to the database and move it to cache only the data is read. Combine with read-through will provide good performance in situations where data is written once and read less frequently or never. For example, real-time logs or chatroom messages.
 
 ### Write-Back
-Application writs data to the cache and after some delay, cache writes data(could be multiple write results) back to DB. /
+Application writs data to the cache and after some delay, cache writes data(could be multiple write results) back to DB. \
 Write back improve the write performance and good for write-heavy workloads. When combined with read-through, it works good for mixed workloads.
 
 ### What if cache is down and data lost in cache
@@ -36,8 +36,9 @@ used for rollback
 3. bin log
 used for master-slave copy
 ### master slave
-主节点
+主节点\
 1、当主节点上进行 insert、update、delete 操作时，会按照时间先后顺序写入到 binlog 中；
+
 2、当从节点连接到主节点时，主节点会创建一个叫做 binlog dump 的线程；
 
 3、一个主节点有多少个从节点，就会创建多少个 binlog dump 线程；
@@ -50,3 +51,24 @@ used for master-slave copy
 I/O线程： 此线程连接到主节点，主节点上的 binlog dump 线程会将 binlog 的内容发送给此线程。此线程接收到 binlog 内容后，再将内容写入到本地的 relay log。
 
 SQL线程： 该线程读取 I/O 线程写入的 relay log，并且根据 relay log 的内容对从数据库做对应的操作。
+
+
+## Cache Penetration
+Data cannot be found from either the cache or database that has been requested in huge volume.
+1. Bloom filter
+2. cache the empty result for short time
+3. Hystrix(rate limiter)
+4. application level token
+
+
+## Cache breakdown
+hotspot invalid.
+1. cache never expire
+2. mutex, when data is empty, only 1 request is allowed to pass to pull the date from db and update cache.
+
+## Cache Avalanche
+at some point in time or within a short period of time, the cache set fails or the cache system fails or there is not data in the cache.
+1. redis die? Cluster. restore? RDB(snapshot) AOF(Append only file)
+2. Keys exipre at the same time? add a random number to expiration
+3. Hystrix
+4. application cache
