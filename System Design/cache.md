@@ -2,7 +2,7 @@
 ## Cache-Aside
 ![alt text](pic/cache-aside.png)
 
-Best for read-heave workloads. Data model in cache can be different than the data model in database.
+Best for read-heavy workloads. Data model in cache can be different than the data model in database.
 
 When cache-aside is used, cache may become inconsistent with database. For example, A write to DB, B read cache, hit cache but data is stale. To avoid this, developers generally use TTL. If data freshness must be guranteed, can invalidate the cache entry, like delete it from cache. Force a cache miss happen.
 
